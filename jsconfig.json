@@ -1,0 +1,15 @@
+{
+    "prettier.disableLanguages": [
+        "vue"
+    ],
+    "vetur.validation.template": true,
+    "vetur.format.defaultFormatter.html": "prettyhtml",
+    "vetur.format.defaultFormatterOptions": {
+        "prettyhtml": {
+            "printWidth": 80,
+            "singleQuote": false,
+            "wrapAttributes": true,
+            "sortAttributes": false
+        }
+    },
+}
