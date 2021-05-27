@@ -175,18 +175,19 @@ export default {
     try {
       window.stt = this;
       const allDailies = await this.root.$api.getMinimumDailyGoalIntensities();
+      console.log("allDailies22", allDailies);
       const [{Datos: minimumIntensities}] = allDailies;
       const minimumIntensitiesNombres = minimumIntensities.map(x => x.Nombre);
       this.loadedPrototypes = await this.root.$api.getAllPrototypes();
-      this.loadedPrototypes = this.loadedPrototypes.Objetivo_Predefinido.map((obj) => {
-        const pos = minimumIntensitiesNombres.indexOf(obj.Nombre);
+      for(let index = 0; index < this.loadedPrototypes.Objetivo_Predefinido.length; index++) {
+        const item = this.loadedPrototypes.Objetivo_Predefinido[index];
+        const pos = minimumIntensitiesNombres.indexOf(item.Nombre);
         if (pos !== -1) {
-          obj.Intensidades_minimas = minimumIntensities[pos].Intensidades_minimas;
+          this.loadedPrototypes.Objetivo_Predefinido[index].Intensidades_minimas = minimumIntensities[pos].Intensidades_minimas;
         } else {
-          obj.Intensidades_minimas = 0;
+          this.loadedPrototypes.Objetivo_Predefinido[index].Intensidades_minimas = 0;
         }
-        return obj;
-      });
+      }
     } catch (error) {
       console.error("Error on mounted:", error);
     }
