@@ -225,7 +225,7 @@ class APIBase {
     constructor() {
         this.settings = {
             appID: "Body in & out",
-            appVersion: 3,
+            appVersion: 4,
         };
         this.state = {
             isPrepared: false,
