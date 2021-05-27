@@ -178,7 +178,7 @@ export default {
       const [{Datos: minimumIntensities}] = allDailies;
       const minimumIntensitiesNombres = minimumIntensities.map(x => x.Nombre);
       this.loadedPrototypes = await this.root.$api.getAllPrototypes();
-      this.loadedPrototypes.Objetivo_Predefinido.map((obj) => {
+      this.loadedPrototypes = this.loadedPrototypes.Objetivo_Predefinido.map((obj) => {
         const pos = minimumIntensitiesNombres.indexOf(obj.Nombre);
         if (pos !== -1) {
           obj.Intensidades_minimas = minimumIntensities[pos].Intensidades_minimas;
