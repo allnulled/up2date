@@ -225,7 +225,7 @@ class APIBase {
     constructor() {
         this.settings = {
             appID: "Body in & out",
-            appVersion: 4,
+            appVersion: 5,
         };
         this.state = {
             isPrepared: false,
@@ -531,7 +531,7 @@ class API extends APIBase {
         try {
             let dailyGoals = await this.dexie.Minimas_Intensidades_Diarias.where("Nombre").equals("Daily").toArray();
             if (dailyGoals.length === 0) {
-                await this.dexie.Minimas_Intensidades_Diarias.bulkAdd([{ Nombre: "Daily", Datos: {} }]);
+                await this.dexie.Minimas_Intensidades_Diarias.bulkAdd([{ Nombre: "Daily", Datos: [] }]);
                 dailyGoals = await this.dexie.Minimas_Intensidades_Diarias.where("Nombre").equals("Daily").toArray();
             }
             console.log(dailyGoals, "dailyGoals");
