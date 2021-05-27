@@ -1153,11 +1153,11 @@ input[type="time"].form-input {
   text-align: right;
 }
 .datetime-cell-date {
-  font-size: 13px;
+  font-size: 10px;
   border: 1px solid #222;
-  background-color: #999;
-  color: #FF0;
-  padding: 4px;
+  background-color: #333;
+  color: #FFF;
+  margin: 4px;
   font-weight: bold;
   font-family: monospace;
 }

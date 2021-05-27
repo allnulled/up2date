@@ -45,5 +45,18 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "description": "Go to the application [here](https://allnulled.github.com/up2date).",
+  "main": "babel.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/allnulled/up2date.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/allnulled/up2date/issues"
+  },
+  "homepage": "https://github.com/allnulled/up2date#readme"
 }

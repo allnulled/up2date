@@ -147,46 +147,6 @@ class Alimento_Efectivo extends APIModel {
 
 }
 
-class Concatenacion_Alimento_Con_Alimento extends APIModel {
-
-    constructor(...args) {
-        super(...args);
-        this.modelID = "Concatenacion_Alimento_Con_Alimento";
-        this.cascadeDeletes = [];
-    }
-
-}
-
-class Concatenacion_Alimento_Con_Pensamiento extends APIModel {
-
-    constructor(...args) {
-        super(...args);
-        this.modelID = "Concatenacion_Alimento_Con_Pensamiento";
-        this.cascadeDeletes = [];
-    }
-
-}
-
-class Concatenacion_Alimento_Con_Movimiento extends APIModel {
-
-    constructor(...args) {
-        super(...args);
-        this.modelID = "Concatenacion_Alimento_Con_Movimiento";
-        this.cascadeDeletes = [];
-    }
-
-}
-
-class Concatenacion_Alimento_Con_Objetivo extends APIModel {
-
-    constructor(...args) {
-        super(...args);
-        this.modelID = "Concatenacion_Alimento_Con_Objetivo";
-        this.cascadeDeletes = [];
-    }
-
-}
-
 class Pensamiento_Efectivo extends APIModel {
 
     constructor(...args) {
@@ -207,46 +167,6 @@ class Pensamiento_Predefinido extends APIModel {
 
 }
 
-class Concatenacion_Pensamiento_Con_Alimento extends APIModel {
-
-    constructor(...args) {
-        super(...args);
-        this.modelID = "Concatenacion_Pensamiento_Con_Alimento";
-        this.cascadeDeletes = [];
-    }
-
-}
-
-class Concatenacion_Pensamiento_Con_Pensamiento extends APIModel {
-
-    constructor(...args) {
-        super(...args);
-        this.modelID = "Concatenacion_Pensamiento_Con_Pensamiento";
-        this.cascadeDeletes = [];
-    }
-
-}
-
-class Concatenacion_Pensamiento_Con_Movimiento extends APIModel {
-
-    constructor(...args) {
-        super(...args);
-        this.modelID = "Concatenacion_Pensamiento_Con_Movimiento";
-        this.cascadeDeletes = [];
-    }
-
-}
-
-class Concatenacion_Pensamiento_Con_Objetivo extends APIModel {
-
-    constructor(...args) {
-        super(...args);
-        this.modelID = "Concatenacion_Pensamiento_Con_Objetivo";
-        this.cascadeDeletes = [];
-    }
-
-}
-
 class Movimiento_Efectivo extends APIModel {
 
     constructor(...args) {
@@ -262,46 +182,6 @@ class Movimiento_Predefinido extends APIModel {
     constructor(...args) {
         super(...args);
         this.modelID = "Movimiento_Predefinido";
-        this.cascadeDeletes = [];
-    }
-
-}
-
-class Concatenacion_Movimiento_Con_Alimento extends APIModel {
-
-    constructor(...args) {
-        super(...args);
-        this.modelID = "Concatenacion_Movimiento_Con_Alimento";
-        this.cascadeDeletes = [];
-    }
-
-}
-
-class Concatenacion_Movimiento_Con_Pensamiento extends APIModel {
-
-    constructor(...args) {
-        super(...args);
-        this.modelID = "Concatenacion_Movimiento_Con_Pensamiento";
-        this.cascadeDeletes = [];
-    }
-
-}
-
-class Concatenacion_Movimiento_Con_Movimiento extends APIModel {
-
-    constructor(...args) {
-        super(...args);
-        this.modelID = "Concatenacion_Movimiento_Con_Movimiento";
-        this.cascadeDeletes = [];
-    }
-
-}
-
-class Concatenacion_Movimiento_Con_Objetivo extends APIModel {
-
-    constructor(...args) {
-        super(...args);
-        this.modelID = "Concatenacion_Movimiento_Con_Objetivo";
         this.cascadeDeletes = [];
     }
 
@@ -345,7 +225,7 @@ class APIBase {
     constructor() {
         this.settings = {
             appID: "Body in & out",
-            appVersion: 1,
+            appVersion: 3,
         };
         this.state = {
             isPrepared: false,
@@ -355,24 +235,12 @@ class APIBase {
             // @ABOUT: food
             Alimento_Predefinido: new Alimento_Predefinido({ api: this }),
             Alimento_Efectivo: new Alimento_Efectivo({ api: this }),
-            Concatenacion_Alimento_Con_Alimento: new Concatenacion_Alimento_Con_Alimento({ api: this }),
-            Concatenacion_Alimento_Con_Pensamiento: new Concatenacion_Alimento_Con_Pensamiento({ api: this }),
-            Concatenacion_Alimento_Con_Movimiento: new Concatenacion_Alimento_Con_Movimiento({ api: this }),
-            Concatenacion_Alimento_Con_Objetivo: new Concatenacion_Alimento_Con_Objetivo({ api: this }),
             // @ABOUT: thought
             Pensamiento_Efectivo: new Pensamiento_Efectivo({ api: this }),
             Pensamiento_Predefinido: new Pensamiento_Predefinido({ api: this }),
-            Concatenacion_Pensamiento_Con_Alimento: new Concatenacion_Pensamiento_Con_Alimento({ api: this }),
-            Concatenacion_Pensamiento_Con_Pensamiento: new Concatenacion_Pensamiento_Con_Pensamiento({ api: this }),
-            Concatenacion_Pensamiento_Con_Movimiento: new Concatenacion_Pensamiento_Con_Movimiento({ api: this }),
-            Concatenacion_Pensamiento_Con_Objetivo: new Concatenacion_Pensamiento_Con_Objetivo({ api: this }),
             // @ABOUT: movement
             Movimiento_Efectivo: new Movimiento_Efectivo({ api: this }),
             Movimiento_Predefinido: new Movimiento_Predefinido({ api: this }),
-            Concatenacion_Movimiento_Con_Alimento: new Concatenacion_Movimiento_Con_Alimento({ api: this }),
-            Concatenacion_Movimiento_Con_Pensamiento: new Concatenacion_Movimiento_Con_Pensamiento({ api: this }),
-            Concatenacion_Movimiento_Con_Movimiento: new Concatenacion_Movimiento_Con_Movimiento({ api: this }),
-            Concatenacion_Movimiento_Con_Objetivo: new Concatenacion_Movimiento_Con_Objetivo({ api: this }),
             // @ABOUT: goals
             Objetivo_Efectivo: new Objetivo_Efectivo({ api: this }),
             Objetivo_Predefinido: new Objetivo_Predefinido({ api: this }),
@@ -403,31 +271,7 @@ class APIBase {
                     Detalles,
                     *Reflexiones
                 `,
-                Concatenacion_Alimento_Con_Alimento: `
-                    ++Id,
-                    Origen_Alimento -> Alimento_Predefinido.Id,
-                    Destino_Alimento -> Alimento_Predefinido.Id,
-                    Intensidad
-                `,
-                Concatenacion_Alimento_Con_Pensamiento: `
-                    ++Id,
-                    Origen_Alimento -> Alimento_Predefinido.Id,
-                    Destino_Pensamiento -> Pensamiento_Predefinido.Id,
-                    Intensidad
-                `,
-                Concatenacion_Alimento_Con_Movimiento: `
-                    ++Id,
-                    Origen_Alimento -> Alimento_Predefinido.Id,
-                    Destino_Movimiento -> Movimiento_Predefinido.Id,
-                    Intensidad
-                `,
-                Concatenacion_Alimento_Con_Objetivo: `
-                    ++Id,
-                    Origen_Alimento -> Alimento_Predefinido.Id,
-                    Destino_Objetivo -> Objetivo_Predefinido.Id,
-                    Intensidad
-                `,
-
+                
                 // @ABOUT: thought
                 Pensamiento_Efectivo: `
                     ++Id,
@@ -442,30 +286,6 @@ class APIBase {
                     &Nombre,
                     Detalles,
                     *Reflexiones
-                `,
-                Concatenacion_Pensamiento_Con_Alimento: `
-                    ++Id,
-                    Origen_Pensamiento -> Pensamiento_Predefinido.Id,
-                    Destino_Alimento -> Alimento_Predefinido.Id,
-                    Intensidad
-                `,
-                Concatenacion_Pensamiento_Con_Pensamiento: `
-                    ++Id,
-                    Origen_Pensamiento -> Pensamiento_Predefinido.Id,
-                    Destino_Pensamiento -> Pensamiento_Predefinido.Id,
-                    Intensidad
-                `,
-                Concatenacion_Pensamiento_Con_Movimiento: `
-                    ++Id,
-                    Origen_Pensamiento -> Pensamiento_Predefinido.Id,
-                    Destino_Movimiento -> Movimiento_Predefinido.Id,
-                    Intensidad
-                `,
-                Concatenacion_Pensamiento_Con_Objetivo: `
-                    ++Id,
-                    Origen_Pensamiento -> Pensamiento_Predefinido.Id,
-                    Destino_Objetivo -> Objetivo_Predefinido.Id,
-                    Intensidad
                 `,
 
                 // @ABOUT: movement                
@@ -483,31 +303,7 @@ class APIBase {
                     Detalles,
                     *Reflexiones
                 `,
-                Concatenacion_Movimiento_Con_Alimento: `
-                    ++Id,
-                    Origen_Movimiento -> Movimiento_Predefinido.Id,
-                    Destino_Alimento -> Alimento_Predefinido.Id,
-                    Intensidad
-                `,
-                Concatenacion_Movimiento_Con_Pensamiento: `
-                    ++Id,
-                    Origen_Movimiento -> Movimiento_Predefinido.Id,
-                    Destino_Pensamiento -> Pensamiento_Predefinido.Id,
-                    Intensidad
-                `,
-                Concatenacion_Movimiento_Con_Movimiento: `
-                    ++Id,
-                    Origen_Movimiento -> Movimiento_Predefinido.Id,
-                    Destino_Movimiento -> Movimiento_Predefinido.Id,
-                    Intensidad
-                `,
-                Concatenacion_Movimiento_Con_Objetivo: `
-                    ++Id,
-                    Origen_Movimiento -> Movimiento_Predefinido.Id,
-                    Destino_Objetivo -> Objetivo_Predefinido.Id,
-                    Intensidad
-                `,
-
+                
                 // @ABOUT: goals                
                 Objetivo_Efectivo: `
                     ++Id,
@@ -523,6 +319,13 @@ class APIBase {
                     Detalles,
                     *Reflexiones
                 `,
+
+                // @ABOUT: daily minimums
+                Minimas_Intensidades_Diarias: `
+                    ++Id,
+                    &Nombre,
+                    Datos
+                `
 
             });
             console.log("Database prepared successfully!");
@@ -634,7 +437,7 @@ class API extends APIBase {
             throw error;
         }
     }
-
+    
     async saveData(dataParam, tablenameParam, accs = []) {
         try {
             const data = Object.assign({}, dataParam);
@@ -712,6 +515,43 @@ class API extends APIBase {
 
     toFactTable(s) {
         return this.toTable(s) + "_Efectivo";
+    }
+
+    async getTodayGoals() {
+        try {
+            const allObjetivos = await this.dexie.Objetivo_Efectivo.toArray();
+            return allObjetivos;
+        } catch (error) {
+            console.error(error);
+            throw error;
+        }
+    }
+
+    async getMinimumDailyGoalIntensities() {
+        try {
+            let dailyGoals = await this.dexie.Minimas_Intensidades_Diarias.where("Nombre").equals("Daily").toArray();
+            if (dailyGoals.length === 0) {
+                await this.dexie.Minimas_Intensidades_Diarias.bulkAdd([{ Nombre: "Daily", Datos: {} }]);
+                dailyGoals = await this.dexie.Minimas_Intensidades_Diarias.where("Nombre").equals("Daily").toArray();
+            }
+            console.log(dailyGoals, "dailyGoals");
+            return dailyGoals;
+        } catch (error) {
+            console.error(error);
+            throw error;
+        }
+    }
+
+    async setMinimumDailyGoalIntensities(dailyGoalIntensities) {
+        try {
+            const [{Id}] = await this.dexie.Minimas_Intensidades_Diarias.where("Nombre").equals("Daily").toArray();
+            console.log("Id", Id, "dailyGoalIntensities", dailyGoalIntensities);
+            const updateResult = await this.dexie.Minimas_Intensidades_Diarias.update(Id, dailyGoalIntensities);
+            return updateResult;
+        } catch (error) {
+            console.error(error);
+            throw error;
+        }
     }
 
 
